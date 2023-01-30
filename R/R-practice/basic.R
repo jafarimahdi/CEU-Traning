@@ -24,12 +24,12 @@ print(first_Hundrad)
 
 1:20 -> secound_Hundrad # find for haj mamad 
 print(secound_Hundrad)
-
-Mahdi-> "hello mahdi"
+Mahdi -> "hello mahdi"
 print(Mahdi)
 
 "hello mohamad"<-mamad
 print(mamad)
+
 
 
 first_element<- 1:10
