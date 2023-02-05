@@ -3,7 +3,7 @@
     "path": "~/greenFox/CEU-Traning/R/R-practice/Session-3.R",
     "project_path": "Session-3.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "745770269",
     "contents": "",
     "dirty": false,
     "created": 1675436342771.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "39,22",
-        "scrollLine": "30"
+        "cursorPosition": "44,23",
+        "scrollLine": "31"
     },
     "folds": "",
-    "lastKnownWriteTime": 1675441726,
+    "lastKnownWriteTime": 1675442139,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1675441726073,
+    "last_content_update": 1675442139816,
     "read_only": false,
     "read_only_alternatives": []
 }

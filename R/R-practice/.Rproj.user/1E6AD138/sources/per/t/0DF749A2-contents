@@ -57,6 +57,7 @@ checkBmi(180, 60)
 checkBmi(190, 75)
 
 
+
 # ------ ifelse() is R method to check the elements in 2 quick answer 
 
 ifelse(1:100 %% 2 == 0, yes="even", no="odd")   #return odd or even
