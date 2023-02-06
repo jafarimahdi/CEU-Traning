@@ -1,27 +1,27 @@
 {
-    "id": "34581370",
-    "path": "~/greenFox/CEU-Traning/R/R-practice/Session-2.R",
-    "project_path": "Session-2.R",
+    "id": "82BFF801",
+    "path": "~/greenFox/CEU-Traning/R/DataCamp/Practice-7.R",
+    "project_path": "Practice-7.R",
     "type": "r_source",
-    "hash": "2351996136",
+    "hash": "1203016781",
     "contents": "",
     "dirty": false,
-    "created": 1675334476952.0,
+    "created": 1675630305037.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 7,
     "properties": {
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "66,0",
-        "scrollLine": "0"
+        "cursorPosition": "72,0",
+        "scrollLine": "66"
     },
     "folds": "",
-    "lastKnownWriteTime": 1675339539,
+    "lastKnownWriteTime": 1675235604,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1675339539637,
+    "last_content_update": 1675235604,
     "read_only": false,
     "read_only_alternatives": []
 }
