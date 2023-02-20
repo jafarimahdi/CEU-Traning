@@ -20,9 +20,16 @@ head(diamonds_txt)
 diamonds_csv <- read.csv("diamonds.csv",header = TRUE, sep = ";")
 head(diamonds_csv)
 
+#  read the data-set .txt file with the extra line
 diamonds_with_extra_lines <- read.delim("diamonds_with_extra_lines.txt",header = TRUE, sep = "\t")
 head(diamonds_with_extra_lines)
 
 
+# read the data-set file from URL
+web_url <-'https://github.com/CEU-Economics-and-Business/ECBS-5208-Coding-1-Business-Analytics/blob/master/class_2/data/hotels/clean/my_csvfile.csv'
+
+reading_from_url <- read.csv(web_url)
+#head(reading_from_url)
+reading_from_url
 
 
