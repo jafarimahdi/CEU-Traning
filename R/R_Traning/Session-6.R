@@ -40,13 +40,13 @@ flights %>%
 
 df<-           # define variable as new table to have better view for result to check
 flights %>% 
-  filter(origin == "EWR" | origin == "JFK") %>%            # 1-step: filter
-  group_by(tailnum) %>%                                    # 2-step: group each plan by them tailnum
-  summarise(avrege_delay= mean(arr_delay ,na.rm = T)) %>%  # 3-step: find Average and defined to variable, and summarise it 
-  arrange(avrege_delay) %>%                                # 4-step: sort the data
-  mutate(abs_avrege = abs(avrege_delay)) %>%               # 5-step: define new column to the table
-  arrange(abs_avrege) %>%                                  # 6-step: sort that column
-  head(1)                                                  # 7-step: grab the first one 
+  filter(origin == "EWR" | origin == "JFK")%>%            # 1-step: filter
+  group_by(tailnum)%>%                                    # 2-step: group each plan by them tailnum
+  summarise(avrege_delay= mean(arr_delay ,na.rm = T))%>%  # 3-step: find Average and defined to variable, and summarise it 
+  arrange(avrege_delay)%>%                                # 4-step: sort the data
+  mutate(abs_avrege = abs(avrege_delay))%>%               # 5-step: define new column to the table
+  arrange(abs_avrege)%>%                                  # 6-step: sort that column
+  head(1)                                                 # 7-step: grab the first one 
 
   
 
