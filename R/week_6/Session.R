@@ -49,7 +49,7 @@ merge(x = find_the_most, y = planes, by.x="tailnum", by.y="tailnum") %>%
   select(tailnum, find_the_most, manufacturer)
 
   
-# Task-4: How many seats does the aeroplane have which flow the most times from JFK to MCO?
+# Task-4: How many seats does the airplane have which flow the most times from JFK to MCO?
 most_set <-
   flights %>% 
   filter(origin == "JFK" & dest == "MCO") %>% 
@@ -64,14 +64,7 @@ planes %>%
   select(manufacturer, model, seats)
 
 
-  
-  
-  
-  
-  
-# 3 similer question from the weather table 
-  
-  
+
   
   
   
