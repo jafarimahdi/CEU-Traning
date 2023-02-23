@@ -10,7 +10,7 @@ flights <- nycflights13::flights
 most_visited <-
   flights %>% 
   filter(!is.na(tailnum)) %>%           # is.na() to recognize the data is Nan
-  filter(month > 5 | month< 10) %>%     # June to September 
+  filter(month > 5 & month< 10) %>%     # June to September 
   group_by(dest) %>%                    # group by dest 
   summarise(most_visited = n()) %>%     # give to each group the value by the time repetition 
   arrange(-most_visited) %>%            # to find the max num in each group
@@ -25,7 +25,7 @@ airports %>%                                                         # select th
 #    -----------------------------
 
 #  Task-2: What was the average temperature in the EWR airport
-#.         in June by year(every year June average temperature)?
+#         in June by year(every year June average temperature)?
  
 avg_temp<-
   weather %>% 
@@ -58,7 +58,15 @@ planes %>%                                                                      
 
 
 
+# Task-4 find the name and model of the plane, that had the most fly in February 
 
+
+most_flight <-
+  flights %>% 
+  filter(month == 2) %>% 
+  
+  
+  
 
 
 
