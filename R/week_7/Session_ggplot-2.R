@@ -8,7 +8,7 @@ ggplot(mtcars, aes(x= mpg, y=hp))+  # syntax
 
 
 # giving color to different type of data
-ggplot(mtcars, aes(x=mpg, y=he, color=as.factor(am)))+  # as.factor() to make specific choice not average or middle point
+ggplot(mtcars, aes(x=mpg, y=hp, color=as.factor(am)))+  # as.factor() to make specific choice not average or middle point
   geom_point()
   
 
