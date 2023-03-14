@@ -1,0 +1,52 @@
+---
+title: "HW-1"
+date: "2023-03-09"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+    highlight: github
+---
+
+### This chart show the mpg and hp in our car data-set
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+
+ggplot(mtcars, aes(x= mpg, y=hp))+  
+  geom_point()+
+  geom_smooth()
+
+```
+
+```{r}
+
+```
+
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+
+ggplot(mtcars, aes(x=mpg, y=hp, color=as.factor(am)))+
+  geom_point()+
+  geom_smooth()
+```
+
+
+### The chart below show us the mpg & hp in our car data-set wehre the type of gear divided by color
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+
+ggplot(mtcars, aes(x=mpg, y=hp, color=as.factor(am), shape = as.factor(gear)))+
+  geom_point()+geom_smooth()+
+  labs(x ="miles per gallon", y = "Hourse power", color="Automata", 
+  title = "Mtcars", subtitle ="data")+ 
+  theme_bw()                                              
+```
+
+
+
