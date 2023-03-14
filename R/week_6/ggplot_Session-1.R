@@ -1,6 +1,5 @@
 library(ggplot2)
 
-
 View(mtcars) # data-set will be use 
 
 ggplot(mtcars, aes(x= mpg, y=hp))+  # syntax 
