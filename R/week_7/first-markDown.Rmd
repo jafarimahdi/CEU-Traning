@@ -1,0 +1,73 @@
+---
+title: "first-markDown"
+date: "2023-03-07"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+
+---
+
+## Analysing the new New York flight data set 
+
+
+##### here we can see The most popular airlines name from JFK
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+
+most_popular <-
+  flights %>% 
+  filter(origin=="JFK") %>% 
+  group_by(carrier) %>% 
+  summarise(amount_flights = n()) %>% 
+  arrange(-amount_flights) %>% 
+  head(10)
+
+most_popular_airlines <-
+  merge(x=most_popular, y=airlines, by.x = "carrier", by.y = "carrier")
+ 
+
+ggplot(most_popular_airlines,aes(x = reorder(name, amount_flights, decrasing =F), y = amount_flights))+ 
+  geom_col( color="blue", fill="black")+
+  theme_bw()+
+  coord_flip()+
+  labs(x="number of flight",y="Company Name", title = "Most popular company")
+
+```
+
+### The data we present in the pervius chart is: 
+<!-- show the data better and nicer -->
+```{r}
+knitr::kable(most_popular)
+```
+
+##### Chart of the first 1000 fly
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+df <- flights %>% 
+  head(1000)
+
+chart_1 <- df %>% 
+  select(arr_delay, distance, carrier )
+
+ggplot(chart_1, aes(x = distance, y =arr_delay, color=carrier))+ 
+  geom_point()+
+  theme_bw()+
+  labs(x = "Distance", Y= "Arrival Delay" , title= "Arraive delay and distance by carrier" )
+```
+
+
+<!--  concolusion :
+   - how to add new MarkDown blanket file from the tab "file"
+   - new chuck: from "code" tab click "insert chunk" 
+   - echo: it's for showing the code in the markDown
+   - Warning: for hide or show the warning message to user 
+   - message: for show or hiding the message to the user 
+   - how to publish to be live 
+   - after each change you should click in "knit" to see the changes
+   
+-->
+
