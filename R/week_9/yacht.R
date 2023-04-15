@@ -1,66 +1,43 @@
 library(rvest)
 library(xml2)
-# web scraping with "rvest" package 
+  
+# 1- read_html( url )
+# 2- html_nodes( tag ) 
+# 3- html_text('a' )  or html_attr('href')
+# 4- define name, price, builtBy in variable
+# 5- push all the variable to the LIST
+# 6- show the result by loop or return the list 
 
+  # ------------------------------------
 
-t <- read_html('https://www.boatinternational.com/yachts-for-sale') # read the html file
+webScraping <- function(url) {
 
-
-# t %>% html_nodes(".card__title--sponsored a") %>% html_text().          # for adding all the data  
-all <-t %>% html_nodes(".card__title--sponsored a") %>% html_attr("href") # for reading only the links
-links <- paste0("https://www.boatinternational.com",all)
-
-links
-
-
-#url <-"https://www.boatinternational.com/yachts-for-sale/emocean-rosetti-2021" for chacking spacific yacht 
-
-# -----------------------------------------
-# -----------------------------------------
-
-
-first_function <- function(userUrl) {
+  details <- read_html(url)  # 1 step: link the website
+  
+  name <- details %>% html_nodes(".heading--large") %>% html_text()
+  name <- gsub('for sale','',name)
+  
+  price_built <- details %>% html_nodes(".stats__heading span") %>% html_text()
+  builtBy <- price_built[1]
+  price <- price_built[2]
+  
+  # making a LIST from Data for result as LIST
+  data_details <- list()
+  
+  data_details [["name"]] <- name
+  data_details[["price"]]<- price
+  data_details[["builtBy"]] <-builtBy
   
   
-  yacht <- read_html(userUrl) # 1 step: link the website
+  data_details$name
+  for (item in data_details) {
+    print(data_details$item)
+  }
   
-  
-  # name
-  name <- yacht %>% html_nodes(".heading--large") %>% html_text()
-  name<- gsub('for sale','',name)
-  name
-  # price 
-  price_yacht <- yacht %>% html_nodes(".stats__heading span") %>% html_text()
-  builtBy <- price_yacht[1]
-  price <- price_yacht[2]
-  builtBy
-  price
-  
-  
-  data <- data.frame("Yacht Name"= name,"Built By"=builtBy ,"Price"= price,"url"= url)
-  data
-  return(data) # my data is ready from the web 
+  # or return the data
+  #return (data_details)
 }
 
+url <- "https://www.boatinternational.com/yachts-for-sale/fortitude-intermarine-usa-1998"
 
-data_set2 <- data.frame()
-
-
-for (item in links) {
-  data_set <-first_function(item)
-  data_set2 <- rbind(data, data_set)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+webScraping(url)
