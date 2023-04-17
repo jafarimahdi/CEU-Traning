@@ -22,7 +22,7 @@ read_inner <- function(inner_link) {
   
   final_relative_links <- car_links[startsWith(car_links,'/car')]
   
-  # concet eah link to the base url 
+  # conncet each link to the base url 
   result <- paste0('https://www.ultimatespecs.com', final_relative_links)
   return(result)
 }
@@ -39,6 +39,8 @@ myList <- unlist(read_all_link)
 # delete the uncorect links from the vector 
 myList[myList!="https://www.ultimatespecs.com"]
 
+# resutl will be an list of the all vectors 
+my_list
 
 
 

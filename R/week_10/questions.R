@@ -9,12 +9,15 @@
 
 # which is the best to have as result in R : data.frame. data.table or list file 
 
-# how to convert file to each others
-  # list to data.frame
+# ------- how to convert file to each others
+  # list to data.frame : using loop for 2 list and make them as key and value first, than convert to data.frame file 
+
   # data.frame to list
   # data.frame to data.table
   # data.table to data.frame
-  # ? list to data.table and data.table to list 
+  # ? list to data.table and data.table to list
+  # json to the list? list(myjson)
+  # list to the json? toJSON(myList)
 
 # ------------------------
 
