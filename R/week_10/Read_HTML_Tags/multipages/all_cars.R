@@ -13,6 +13,7 @@ all_link <- paste0('https://www.ultimatespecs.com',clean_inner_link)
 view(all_link)
 
 # -----------------
+
 inner_page <- all_link[233]
 read_inner_link <- function(inner_page) {
   print(inner_page)
