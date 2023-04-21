@@ -14,7 +14,7 @@ library(ggplot2)
 library(dplyr)
 df <- readRDS('/Users/JM/greenFox/CEU-Traning/R/week_11/motors_data.rds' )
 
-df <- df %>% arrange(MSRP) %>% head(30)
+df <- df %>% arrange(MSRP) %>% head(40)
 
 ggplot(df, aes(x= name, y=MSRP))+  
   geom_col(color="grey", fill="black")+
