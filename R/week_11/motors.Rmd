@@ -1,0 +1,29 @@
+---
+title: "Motors data"
+date: "2023-04-21"
+output:
+  prettydoc::html_pretty:
+    theme: lumen
+    highlight: github
+---
+### The chart of details about Kawasaki motors is shown below, with data taken from an RDS file saved from motorcycle.com, with the first 20 motors targeted for speedier loading.
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+
+library(ggplot2)
+library(dplyr)
+df <- readRDS('/Users/JM/greenFox/CEU-Traning/R/week_11/motors_data.rds' )
+
+df <- df %>% arrange(MSRP) %>% head(30)
+
+ggplot(df, aes(x= name, y=MSRP))+  
+  geom_col(color="grey", fill="black")+
+  theme_bw()+
+  coord_flip()+
+  theme(axis.text.x = element_text(angle =60, vjust=0.5,hjust=0.5))+
+  labs(x="Name",y="Price", title = "Kawasaki Details")
+  
+  
+
+```
+
