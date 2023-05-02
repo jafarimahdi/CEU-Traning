@@ -1,0 +1,26 @@
+{
+    "id": "F18C8A04",
+    "path": "~/greenFox/CEU-Traning/R/week_13/Bitcoin_price/app-1.R",
+    "project_path": "app-1.R",
+    "type": "r_source",
+    "hash": "2351986193",
+    "contents": "",
+    "dirty": false,
+    "created": 1682593563303.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "22,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1682593709,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1682593709612,
+    "read_only": false,
+    "read_only_alternatives": []
+}
