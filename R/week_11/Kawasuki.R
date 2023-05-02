@@ -53,6 +53,7 @@ View(motors_df)
 
 # make RDS file
 saveRDS(motors_df,'motors_data.rds')
+
 # ------------------------------
 # 4 make an rmd report with some ggplot and exploratory data analytics,
  # motors.Rmd created
