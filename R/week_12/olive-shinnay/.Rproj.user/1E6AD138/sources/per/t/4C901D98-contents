@@ -1,0 +1,164 @@
+---
+title: "Olive Traning: Data Scince"
+date: "Jan-April 2023"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+* web Scraping in R can be done in 3 different way: 
+  + by Target the HTML Tags via G-Extension 
+  + by Target the JSON in Developers Mode Network
+  + by Fetching the API and using CURL code 
+
+#### you can see follow the process by the first way, as it's the harderst and manual way to go trough all the pages and colloctiong data from any server 
+  
+##### 1- for the first step we have target the base page and collect all the links, that has data 
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+# BasePage: https://www.motorcycle.com/specs/kawasaki.html
+
+library(rvest)
+library(data.table)
+library(kableExtra)
+
+# 1 get all the link. save it
+vector_of_all_links <- c()
+
+# we target from page1-3 for reload and work faster
+for (pageNum in 1:3) {
+    
+  url <- paste0("https://www.motorcycle.com/specs/kawasaki.html?page_num=", pageNum)
+  
+  t <- read_html(url)
+  
+  relative_link <- t %>% html_nodes('.flex-one a') %>% html_attr('href')
+  relative_link <- gsub('#UserReviews','',relative_link)
+  
+  vector_of_all_links <- append( vector_of_all_links, relative_link)
+}
+
+```
+
+##### 2- create a function that takes one link, and return with a list, which contain all the data of the motor.
+  
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+
+get_motors_details <- function(url) {
+  
+  motor_data <- read_html(paste0('https://www.motorcycle.com',url))
+  
+  motor_details <- list()
+  
+  motor_details[["Name"]] <- motor_data %>% html_nodes('.sl-post-title') %>% html_text()
+  key <- motor_data %>% html_nodes('.spec-key.bold') %>% html_text() %>% trimws()
+  value <- motor_data %>% html_nodes('.vs-specs-table-row .spec-value') %>% html_text() %>% trimws()
+  
+  if(length(key)==length(value)){
+    for (i in 1:length(key)) {
+      motor_details[[key[i]]] <- value[i]
+    }
+  }
+    return(motor_details)
+}
+```
+
+#### 3- lapply your function to all your links, rbindlist. save the data
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+
+read_all_links <- lapply(vector_of_all_links, get_motors_details)
+
+# convert to data.frame
+motors_df <- rbindlist(read_all_links, fill = T)
+
+```
+
+```{r}
+
+# Saving our data as .RDS file for avoiding the 404/402 Error from Server 
+saveRDS(motors_df,'motors_data.rds')
+
+```
+
+#### 4- View of our data in .RDS file as table
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+library(kableExtra)
+
+table <- readRDS('/Users/JM/greenFox/CEU-Traning/R/week_11/motors_data.rds' )
+
+table %>% 
+  kable(booktabs = TRUE) %>%
+  kable_paper("hover",font_size = 9) %>% 
+  row_spec(0, bold = T, color = 'white',background = "black") %>% 
+  column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey") %>% 
+  scroll_box(width = "100%", height = "650px")
+
+```
+
+```{r}
+
+
+```
+
+
+#### in the first graph we can check the name and price of each Kawasaki model
+
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+
+library(ggplot2)
+library(dplyr)
+
+df <- readRDS('/Users/JM/greenFox/CEU-Traning/R/week_11/motors_data.rds' )
+
+#df$MSRP <- gsub('^.{1}', '', df$MSRP)# delete $ in MSRP column 
+#df$MSRP[2]
+
+#deleted_dollar <- df$MSRP
+#deleted_dollar <- as.numeric(deleted_dollar) # and convert to the number
+
+#deleted_dollar[3]
+#df$MSRP <- deleted_dollar
+
+ggplot(df, aes(x=Name, y=MSRP))+  
+  geom_col(color="grey", fill="black")+
+  theme_bw()+
+  coord_flip()+
+  theme(axis.text.x = element_text(angle =60, vjust=0.5,hjust=0.5))+
+  labs(x="Name",y="Price", title = "Kawasaki Details")
+  
+
+```
+
+# second chart to show the price and names 
+
+```{r echo=TRUE,warning=FALSE, message= FALSE}
+library(ggplot2)
+library(dplyr)
+df_1 <- readRDS('/Users/JM/greenFox/CEU-Traning/R/week_11/motors_data.rds' )
+
+names(df_1)[11]<-"MD_Name"
+names(df_1)[3]<-"Price"
+names(df_1)[2]<-"Type"
+
+df_1$Price<-gsub("\\$","",df_1$Price) # delete the $ sign
+df_1$Price<-gsub("\\,","",df_1$Price) # delete the , sign 
+
+df_1 %>% 
+  select(MD_Name,Price) %>% 
+  head(20) %>% 
+  ggplot( aes(x=Price, y=MD_Name))+
+  geom_line()+geom_point()+
+  coord_flip()+
+  theme(axis.text.x = element_text(angle =60, vjust=0.5,hjust=0.5))+
+  geom_point()
+
+  
+  
+#View(df_1)
+```
+
+
