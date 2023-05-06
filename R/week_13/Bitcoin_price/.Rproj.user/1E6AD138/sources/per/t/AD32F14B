@@ -3,7 +3,7 @@
     "path": "~/greenFox/CEU-Traning/R/week_13/Bitcoin_price/app_2.R",
     "project_path": "app_2.R",
     "type": "r_source",
-    "hash": "810446344",
+    "hash": "976646261",
     "contents": "",
     "dirty": false,
     "created": 1682593627961.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "31,0",
-        "scrollLine": "15"
+        "cursorPosition": "17,1",
+        "scrollLine": "0"
     },
-    "folds": "",
-    "lastKnownWriteTime": 1682626672,
+    "folds": "8|42|17|0|\n20|34|27|0|\n31|29|37|0|\n",
+    "lastKnownWriteTime": 1683179318,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1682626672483,
+    "last_content_update": 1683179318176,
     "read_only": false,
     "read_only_alternatives": []
 }
