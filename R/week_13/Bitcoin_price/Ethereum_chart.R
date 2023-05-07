@@ -11,7 +11,6 @@ coin <- 'ethereum'
 
 getCoinPlot <- function(coin) {
   
-  
   df <- data.table(fromJSON(paste0('https://api.coingecko.com/api/v3/coins/',coin,'/ohlc?vs_currency=usd&days=1'), simplifyDataFrame = T))
   
   names(df) <- c('time', 'open', 'high','low','close')

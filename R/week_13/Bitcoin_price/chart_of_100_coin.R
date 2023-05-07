@@ -55,6 +55,7 @@ ui <- fluidPage(
   # show the table of all coines  
   tableOutput('new_table_out'),
   
+  
 )
 
 
@@ -81,7 +82,6 @@ server <- function(input, output, session) {
   
   # returning the new_table_out as list of all the coin 
   output$new_table_out <- renderTable({ actuall_coin()})
-   
   
   # returning the plot to show
     output$crypto_plot <- renderPlot({ getCoinPlot(actuall_coin())})

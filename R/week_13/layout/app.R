@@ -92,7 +92,7 @@ ui <- dashboardPage(
 
 
 
-# sidebarwithtabset -------------------------------------------------------
+# sidebar witht abset -------------------------------------------------------
 
 # ui <- fluidPage(
 # 
@@ -284,13 +284,7 @@ server <- function(input, output, session) {
   #     color = "yellow", fill = TRUE
   #   )
   # })
-  
-  
-  
-
 }
-
-
 shinyApp(ui = ui, server = server)
 
 
