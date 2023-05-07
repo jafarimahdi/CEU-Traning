@@ -86,7 +86,7 @@ source('functions.R')
 ui <- dashboardPage(
   dashboardHeader(title="Stock Browser"),
   dashboardSidebar(uiOutput('my_ticker'),dateRangeInput('my_date',label = 'Date', start = '2018-01-01', end = Sys.Date())),
-  dashboardBody(plotlyOutput('data_plot', width = '60%', height='800px'))
+  dashboardBody(plotlyOutput('data_plot', width = '100%', height='600px'))
 )
 
 

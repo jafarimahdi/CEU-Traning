@@ -41,20 +41,18 @@ get_coin_list <- function() {
 
 # -----------UI in shinny app ------------------------------
 ui <- fluidPage(
-  
+  fluidRow(
   # show the first 100 coin as drop Down
-  uiOutput('show_coin'),
+  column(7,uiOutput('show_coin')),
   
   # show drop Down for selecting the date
-  uiOutput('show_date'),
-  
- 
+  column(5,uiOutput('show_date')),
+  ),
   # for showing just plot got data from the two drop down in server part
   plotOutput('crypto_plot'),  
   
   # show the table of all coines  
   tableOutput('new_table_out'),
-  
   
 )
 

@@ -3,6 +3,9 @@ library(ggplot2)
 library(data.table)
 library(jsonlite)
 library(rsconnect)
+library(plotly)
+library(shinythemes)
+library(shinydashboard)
 
 
 # 1- returning the data.Frame in the result
@@ -38,24 +41,28 @@ get_coin_list <- function() {
 }
 
 
-
 # -----------UI in shinny app ------------------------------
-ui <- fluidPage(
-  
-  # show the first 100 coin as drop Down
-  uiOutput('show_coin'),
-  
-  # show drop Down for selecting the date
-  uiOutput('show_date'),
-  
-  
-  # for showing just plot got data from the two drop down in server part
-  plotOutput('crypto_plot'),  
-  
-  # show the table of all coines  
-  tableOutput('new_table_out'),
-  
-)
+# R UI: navbarPage, fluidPage, simplePage, dashboard boday are in same level
+
+ui <- fluidPage(theme = shinytheme("slate"),
+                titlePanel('Crypto Tracker'), 
+                    sidebarLayout(
+                        sidebarPanel(
+                          # show the first 100 coin as drop Down
+                          uiOutput('show_coin'),
+                          # show drop Down for selecting the date
+                          uiOutput('show_date'),
+                        ),
+                        mainPanel(
+                          tabsetPanel(
+                            # for showing just plot got data from the two drop down in server part
+                           tabPanel("Chart", plotOutput('crypto_plot',width = '100%', height='600px')),  
+                            # show the table of all coines  
+                            tabPanel("Data Table",tableOutput('new_table_out')),
+                                     )
+                        )
+                )
+            )
 
 
 server <- function(input, output, session) {
@@ -75,7 +82,7 @@ server <- function(input, output, session) {
   
   # output for selecting Day in drop Down
   output$show_date <- renderUI({ selectInput("coin_days", "Select the time",
-                                             c('1','7','14','30','90','180','365'),selected = '1')
+                                             c('Day' ='1','Week'='7','2_Weeks'='14','Month'='30','3_Months'='90','6_Months'='180','1_Year'='365','All Time'='max'),selected = '1')
   })
   
   
