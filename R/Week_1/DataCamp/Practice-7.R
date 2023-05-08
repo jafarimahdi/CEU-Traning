@@ -76,8 +76,3 @@ m[c(FALSE, FALSE, TRUE),
 # b  d 
 # 4 13 
 
-
-
-
-
-

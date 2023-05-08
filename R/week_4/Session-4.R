@@ -1,4 +1,4 @@
-# read a file 
+# read a CSV file 
 df <- read.csv('http://bit.ly/CEU-R-heights')
 
 # check the structures

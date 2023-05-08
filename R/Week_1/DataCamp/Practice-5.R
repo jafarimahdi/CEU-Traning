@@ -71,19 +71,3 @@ remain[c(TRUE, FALSE, TRUE)]
 remain[c(TRUE, FALSE, TRUE, TRUE)]
 # spades  diamonds.  clubs
 #  11.      11.       13
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
