@@ -151,17 +151,14 @@ The base url is <https://www.yachtworld.co.uk/boats-for-sale/>
 
 # Tasks : ultimatespecs scraper
 
-Open that site:
-<https://www.ultimatespecs.com/car-specs/Tesla/M8552/Model-S> and get
-the links of the cars
+Open that site: <https://www.ultimatespecs.com/car-specs/Tesla/M8552/Model-S> and get the links of the cars
 
     t <- read_html('https://www.ultimatespecs.com/car-specs/Tesla')
     linkek <- t %>% html_nodes('.someOtherRow a') %>% html_attr('href')
 
     links <- paste0('https://www.ultimatespecs.com',linkek[endsWith(linkek, '.html')])
 
-Write a function that will take one link and return with a list
-containing the specifications, the name, and the link.
+Write a function that will take one link and return with a list containing the specifications, the name, and the link.
 
     get_one_car_details <- function(url) {
       #Sys.sleep(sample(10:30, 1))
@@ -172,7 +169,7 @@ containing the specifications, the name, and the link.
       t_list[['name']] <- t %>% html_node('h1') %>% html_text()
       t_list[['link']] <- url
 
-      
+
       keys <- t %>% html_nodes('.tabletd') %>% html_text()
       keys<- trimws(gsub(':', '', keys, fixed = T))
       
