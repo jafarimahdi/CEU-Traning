@@ -9,4 +9,6 @@ t %>% html_table()
 all <- rbindlist(t %>% html_table())
 all <- all[!duplicated(all)]
 
-df<- data.table(all %>% pivot_wider(names_from = X1, values_from = X2))
+df <- data.table(all %>% pivot_wider(names_from = X1, values_from = X2))
+
+df
