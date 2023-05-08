@@ -68,13 +68,3 @@ checkBmi(190, 75)
 
 ifelse(1:100 %% 2 == 0, yes="even", no="odd")   #return odd or even
 
-
-
-
-
-
-
-
-
-
-

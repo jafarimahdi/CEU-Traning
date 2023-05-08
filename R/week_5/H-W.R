@@ -63,15 +63,5 @@ planes %>%                                                                      
 
 most_flight <-
   flights %>% 
-  filter(month == 2) %>% 
+  filter(month == 2) 
   
-  
-  
-
-
-
-
-
-
-
-
