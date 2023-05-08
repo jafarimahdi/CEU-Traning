@@ -66,9 +66,3 @@ for(i in seq(1,length(letters),2)){
   print(letters[i])
 }
 
-
-
-
-
-
-

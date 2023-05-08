@@ -93,11 +93,3 @@ df %>%
   summarise(max_value = max(mass)) %>% 
   arrange(-max_value)
   
-
-
-
-
-
-
-
-
