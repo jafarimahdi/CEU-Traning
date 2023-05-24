@@ -1,0 +1,13 @@
+name: Stock_Browser
+title: Stock_Browser
+username:
+account: jafari-mahdi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9093707
+bundleId: 7208509
+url: https://jafari-mahdi.shinyapps.io/Stock_Browser/
+when: 1683873200.54573
+lastSyncTime: 1683873200.54574
+asMultiple: FALSE
+asStatic: FALSE

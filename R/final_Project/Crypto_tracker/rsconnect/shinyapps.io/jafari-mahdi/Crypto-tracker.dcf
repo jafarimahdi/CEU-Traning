@@ -1,0 +1,13 @@
+name: Crypto-tracker
+title: Crypto-tracker
+username:
+account: jafari-mahdi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9093783
+bundleId: 7208805
+url: https://jafari-mahdi.shinyapps.io/Crypto-tracker/
+when: 1683878940.19225
+lastSyncTime: 1683878940.19226
+asMultiple: FALSE
+asStatic: FALSE

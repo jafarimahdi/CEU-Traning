@@ -6,7 +6,7 @@ library(rsconnect)
 library(plotly)
 library(shinythemes)
 library(shinydashboard)
-
+library(MASS)
 
 # 1- returning the data.Frame in the result
 get_coin_df <- function(coin, coin_days) {
