@@ -1,6 +1,6 @@
 from turtle import Turtle, Screen
 import time
-import Snake
+from snake import Snake
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -14,7 +14,7 @@ is_game_on = True
 while is_game_on:
     screen.update()
     time.sleep(0.1)
-
+    snake.move()
 
 
 
