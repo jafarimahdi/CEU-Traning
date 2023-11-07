@@ -1,4 +1,4 @@
-from data import MENU, resource
+from data import MENU, resources
 
 profit = 0.0
 
@@ -44,13 +44,13 @@ def payment():
 def coffee(coffee_type):
 
     if profit >= MENU[str(coffee_type)]['cost']:
-        if MENU[coffee_type]["ingredients"]['water'] <= resource['water'] and MENU[coffee_type]["ingredients"]['coffee'] <= resource['coffee']:
-            resource['water'] -= MENU[coffee_type]["ingredients"]['water']
-            resource['coffee'] -= MENU[coffee_type]["ingredients"]['coffee']
-            resource['milk'] -= MENU[coffee_type]['ingredients']['milk']
+        if MENU[coffee_type]["ingredients"]['water'] <= resources['water'] and MENU[coffee_type]["ingredients"]['coffee'] <= resources['coffee']:
+            resources['water'] -= MENU[coffee_type]["ingredients"]['water']
+            resources['coffee'] -= MENU[coffee_type]["ingredients"]['coffee']
+            resources['milk'] -= MENU[coffee_type]['ingredients']['milk']
             print('Enjoy your coffee :) ')
         else:
-            print(f"coffee: {resource['coffee']}, water: {resource['water']} and it's not enough for your order!")
+            print(f"coffee: {resources['coffee']}, water: {resources['water']} and it's not enough for your order!")
             # break
     else:
         print('please add more coin for this order')
