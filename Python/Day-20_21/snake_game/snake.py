@@ -7,6 +7,7 @@ DOWN = 270
 RIGHT = 0
 LEFT = 180
 
+
 class Snake:
 
     def __init__(self):
@@ -40,7 +41,7 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-            
+
     def left(self):
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
