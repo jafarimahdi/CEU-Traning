@@ -15,13 +15,19 @@ class Snake:
         self.create_snake()  #it will run this method imidatly in each object creation from class
         self.head = self.segments[0]
 
+    def add_segment(self, position):
+        new_segment = Turtle("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+    def concat_segment(self):
+        self.add_segment(self.segments[-1].position())
+
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            new_segment = Turtle("square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
 
     def move(self):
         for item in range(len(self.segments)-1, 0, -1):
