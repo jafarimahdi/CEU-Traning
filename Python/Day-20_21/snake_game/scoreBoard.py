@@ -16,14 +16,17 @@ class Score(Turtle):
     def update_score(self):
         self.write(f"Score:{self.score}", align=ALIGN, font=FONT)
 
+    # increase the score and update
     def increase(self):
         self.score += 1
         self.clear()
         self.write(f"Score:{self.score}", align=ALIGN, font=FONT)
 
-    def gameOver(self):
+    # show the game over on screen
+    def game_over(self):
         self.color("white")
         self.penup()
         self.goto(0, 0)
         self.write("Game Over", align=ALIGN, font=FONT)
+
 
