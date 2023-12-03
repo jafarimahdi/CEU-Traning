@@ -1,6 +1,7 @@
 import random
 from turtle import Turtle
 
+
 class Food(Turtle):
 
     def __init__(self):
@@ -11,7 +12,8 @@ class Food(Turtle):
         self.color("red")
         self.refresh_food()
 
+    # add food randomly to playground
     def refresh_food(self):
-        random_x = random.randint(-270, 270)
-        random_y = random.randint(-270, 270)
+        random_x = random.randint(-260, 260)
+        random_y = random.randint(-260, 260)
         self.goto(random_x, random_y)
