@@ -30,4 +30,19 @@ while game_is_on:
     screen.update()
     ball.move()
 
+    # check the ball hit the wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.hit_wall()
+
+    # check with paddles
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+        ball.hit_paddle()
+
+    # check if the ball pass the paddle for the point
+    if ball.xcor() > 370:
+        ball.reset_position()
+    if ball.xcor() < -370:
+        ball.reset_position()
+
 screen.exitonclick()
+
