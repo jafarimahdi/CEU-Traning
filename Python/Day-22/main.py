@@ -2,6 +2,7 @@ from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
 import time
+from score import Score
 
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.title('Pong Game')
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
+score = Score()
 
 # use the method and key to move the paddle on screen
 screen.listen()
@@ -41,9 +43,13 @@ while game_is_on:
     # check if the ball pass the paddle for the point
     if ball.xcor() > 410:
         ball.reset_pos()
+        score.point_to_right()
 
     if ball.xcor() < -410:
         ball.reset_pos()
+        score.point_to_left()
+
+
 
 screen.exitonclick()
 
