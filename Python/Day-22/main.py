@@ -39,10 +39,11 @@ while game_is_on:
         ball.hit_paddle()
 
     # check if the ball pass the paddle for the point
-    if ball.xcor() > 370:
-        ball.reset_position()
-    if ball.xcor() < -370:
-        ball.reset_position()
+    if ball.xcor() > 410:
+        ball.reset_pos()
+
+    if ball.xcor() < -410:
+        ball.reset_pos()
 
 screen.exitonclick()
 

@@ -21,6 +21,9 @@ class Ball(Turtle):
     def hit_paddle(self):
         self.x_move *= -1
 
-    def reset_position(self):
-        self.x_move = 0
-        self.y_move = 0
+    def reset_pos(self):
+        self.hideturtle()
+        self.goto(0, 0)
+        self.showturtle()
+        self.hit_paddle()
+
