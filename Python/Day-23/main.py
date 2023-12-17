@@ -12,7 +12,7 @@ player = Player()
 
 screen.listen()
 screen.onkey(player.move_up, "Up")
-
+screen.onkey(player.move_down,"Down")
 car_manager = CarManager()
 
 game_is_on = True
