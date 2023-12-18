@@ -6,7 +6,6 @@ FINISH_LINE_Y = 280
 
 
 class Player(Turtle):
-
     def __init__(self):
         super().__init__()
         self.shape("turtle")
@@ -19,3 +18,12 @@ class Player(Turtle):
 
     def move_down(self):
         self.backward(MOVE_DISTANCE)
+
+    def is_player_reach_end(self):
+        if self.ycor() > 270:
+            return True
+        else:
+            return False
+
+    def reset_game(self):
+        self.goto(STARTING_POSITION)
