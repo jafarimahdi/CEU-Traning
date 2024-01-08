@@ -1,19 +1,32 @@
 import turtle
+import pandas
 
 screen = turtle.Screen()
 screen.title("U.S. States Game")
 
 image ="blank_states_img.gif"
 screen.addshape(image)
-
 turtle.shape(image)
 
-name_of_state = screen.textinput(title="Guess the state", prompt="what's another state's name?")
-print(name_of_state)
+# 1- reading csv file
+# 2- select the names of the states in csv and convert to the list
+data = pandas.read_csv("50_states.csv")
+list_of_states = data.state.tolist()
+user_guested = []
 
-# 1- reading csv
-# 2- finding the right data in csv
-# 3- make class for each state new object/turtle on each state and move to the place it must go by X and Y
+
+while len(user_guested) < 50:
+    user_input = screen.textinput(title=f"{len(user_guested)}/50 states", prompt="what's another state's name?").title()
+
+    if user_input in list_of_states:
+        user_guested.append(user_input)
+        t = turtle.Turtle()     # use turtle class
+        t.hideturtle()
+        t.penup()
+        place_on_map = data[data.state == user_input]
+        t.goto(int(place_on_map.x), int(place_on_map.y))
+        t.write(user_input)
 
 
-screen.exitonclick()
+
+
