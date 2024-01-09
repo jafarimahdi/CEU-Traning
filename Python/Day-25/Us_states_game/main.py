@@ -18,6 +18,8 @@ user_guested = []
 while len(user_guested) < 50:
     user_input = screen.textinput(title=f"{len(user_guested)}/50 states", prompt="what's another state's name?").title()
 
+    if user_input == "Exit":
+        break
     if user_input in list_of_states:
         user_guested.append(user_input)
         t = turtle.Turtle()     # use turtle class
@@ -27,6 +29,4 @@ while len(user_guested) < 50:
         t.goto(int(place_on_map.x), int(place_on_map.y))
         t.write(user_input)
 
-
-
-
+# add the forgotten states to learn .csv format
